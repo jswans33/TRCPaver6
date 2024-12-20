@@ -1,68 +1,172 @@
-your-project-name/
+.
 ├── app/
-│   ├── (your-routes)/
-│   │   ├── airport-details/   
-│   │   │   ├── page.tsx       # Airport Details page component using AirportDistressFrame
-│   │   │   └── data.ts      # Data fetching logic for airport details
-│   │   ├── layout.tsx
-│   │   └── ...other routes
-│   ├── globals.css        
-│   └── layout.tsx        
+│   ├── (marketing)/               # Marketing/public-facing routes
+│   │   ├── page.tsx               # Marketing homepage
+│   │   ├── loading.tsx            # Loading state for marketing pages
+│   │   ├── error.tsx              # Error state for marketing pages
+│   │   ├── layout.tsx             # Layout for marketing section (header, footer)
+│   │   ├── about/
+│   │   │   └── page.tsx           # /about page
+│   │   ├── services/
+│   │   │   ├── page.tsx           # /services listing page
+│   │   │   └── [service].tsx      # /services/<service> details page
+│   │   ├── contact/
+│   │   │   └── page.tsx           # /contact page
+│   │   ├── faq/
+│   │   │   └── page.tsx           # /faq page
+│   │   ├── airport-details/
+│   │   │   ├── page.tsx           # /airport-details page
+│   │   │   └── loading.tsx
+│   │   ├── summary-chart/
+│   │   │   └── page.tsx           # /summary-chart page
+│   │   ├── blog/
+│   │   │   ├── page.tsx           # /blog listing page
+│   │   │   ├── [slug].tsx         # /blog/<slug> dynamic blog post
+│   │   │   └── category/
+│   │   │       └── [category].tsx # /blog/category/<category>
+│   │   ├── legal/
+│   │   │   ├── terms.tsx          # /legal/terms
+│   │   │   └── privacy.tsx        # /legal/privacy
+│   │   └── ...other marketing routes
+│
+│   ├── (dashboard)/               # Authenticated, internal application routes
+│   │   ├── layout.tsx             # Dashboard layout (includes nav, sidebar)
+│   │   ├── page.tsx               # Dashboard homepage (e.g., analytics overview)
+│   │   ├── reports/
+│   │   │   ├── page.tsx           # /dashboard/reports listing
+│   │   │   ├── [id].tsx           # /dashboard/reports/<id> details page
+│   │   │   └── new.tsx            # /dashboard/reports/new (create a new report)
+│   │   ├── settings/
+│   │   │   ├── page.tsx           # /dashboard/settings main settings page
+│   │   │   └── account.tsx        # /dashboard/settings/account
+│   │   ├── teams/
+│   │   │   ├── page.tsx           # /dashboard/teams listing
+│   │   │   └── [teamId].tsx       # /dashboard/teams/<teamId> team details
+│   │   ├── messages/
+│   │   │   ├── page.tsx           # /dashboard/messages inbox
+│   │   │   └── [id].tsx           # /dashboard/messages/<id> individual message
+│   │   └── ...other dashboard routes
+│
+│   ├── (profile)/                 # User profile and related routes
+│   │   ├── page.tsx               # /profile overview page
+│   │   ├── edit.tsx               # /profile/edit user profile details
+│   │   ├── preferences.tsx        # /profile/preferences
+│   │   └── security.tsx           # /profile/security (2FA, password changes)
+│
+│   ├── (admin)/                   # Admin-only routes
+│   │   ├── page.tsx               # /admin main dashboard
+│   │   ├── users/
+│   │   │   ├── page.tsx           # /admin/users listing
+│   │   │   ├── [userId].tsx       # /admin/users/<userId> user management
+│   │   │   └── roles.tsx          # /admin/users/roles role management
+│   │   ├── system/
+│   │   │   ├── page.tsx           # /admin/system overview
+│   │   │   ├── logs.tsx           # /admin/system/logs
+│   │   │   └── settings.tsx       # /admin/system/settings
+│   │   └── ...other admin routes
+│
+│   ├── (help)/                    # Support and help center
+│   │   ├── page.tsx               # /help main help center page
+│   │   ├── docs/
+│   │   │   ├── page.tsx           # /help/docs documentation index
+│   │   │   ├── [docId].tsx        # /help/docs/<docId> doc details
+│   │   ├── guides/
+│   │   │   ├── page.tsx           # /help/guides index of guides
+│   │   │   └── [guideId].tsx      # /help/guides/<guideId> specific guide
+│   │   └── contact-support.tsx    # /help/contact-support form
+│
+│   ├── (shop)/                    # E-commerce or product listing
+│   │   ├── page.tsx               # /shop main shop page
+│   │   ├── products/
+│   │   │   ├── page.tsx           # /shop/products listing
+│   │   │   ├── [productId].tsx    # /shop/products/<productId> product details
+│   │   │   └── categories/
+│   │   │       └── [category].tsx # /shop/products/categories/<category>
+│   │   ├── cart.tsx               # /shop/cart
+│   │   └── checkout.tsx           # /shop/checkout
+│
+│   ├── (routes)/                  # tRPC API and miscellaneous routes
+│   │   ├── api/
+│   │   │   └── trpc/
+│   │   │       └── [trpc].ts      # tRPC handler
+│   │   ├── page.tsx               # Potential landing page or general route
+│   │   └── ...other misc routes
+│
+│   ├── globals.css                # Global styles (including Tailwind)
+│   └── layout.tsx                 # Root layout (global HTML structure, meta)
+│
 ├── components/
-│   ├── ui/              # General, reusable UI components
+│   ├── ui/                        # General reusable UI components
 │   │   ├── Button/
 │   │   │   ├── index.tsx
-│   │   │   └── Button.module.css 
-│   │   ├── Table/
+│   │   │   └── Button.module.css
+│   │   ├── Checkbox/
 │   │   │   ├── index.tsx
-│   │   │   ├── Table.module.css
-│   │   │   ├── TableCell.tsx
-│   │   │   └── TableCell.module.css
+│   │   │   └── Checkbox.module.css
+│   │   ├── DataViewSelector/
+│   │   │   ├── index.tsx
+│   │   │   └── DataViewSelector.module.css
 │   │   ├── Dropdown/
 │   │   │   ├── index.tsx
 │   │   │   └── Dropdown.module.css
 │   │   ├── DropdownArrow/
 │   │   │   ├── index.tsx
 │   │   │   └── DropdownArrow.module.css
-│   │   ├── Checkbox/        
+│   │   ├── Heading/
 │   │   │   ├── index.tsx
-│   │   │   └── Checkbox.module.css
+│   │   │   └── Heading.module.css
+│   │   ├── MapToolbarIcon/
+│   │   │   ├── index.tsx
+│   │   │   └── MapToolbarIcon.module.css
+│   │   ├── ProgressBar/
+│   │   │   ├── index.tsx
+│   │   │   └── ProgressBar.module.css
+│   │   ├── Table/
+│   │   │   ├── index.tsx
+│   │   │   ├── Table.module.css
+│   │   │   ├── TableCell.tsx
+│   │   │   └── TableCell.module.css
+│   │   ├── Text/
+│   │   │   ├── index.tsx
+│   │   │   └── Text.module.css
 │   │   ├── Timeline/
 │   │   │   ├── index.tsx
 │   │   │   └── Timeline.module.css
 │   │   ├── TimelineItem/
 │   │   │   ├── index.tsx
 │   │   │   └── TimelineItem.module.css
-│   │   ├── ProgressBar/ 
-│   │   │   ├── index.tsx
-│   │   │   └── ProgressBar.module.css
-│   │   ├── MapToolbarIcon/
-│   │   │   ├── index.tsx
-│   │   │   └── MapToolbarIcon.module.css
-│   │   ├── Heading/
-│   │   │   ├── index.tsx
-│   │   │   └── Heading.module.css
-│   │   ├── Text/
-│   │   │   ├── index.tsx
-│   │   │   └── Text.module.css
-│   │   └── etc.
-│   ├── features/        # Components related to specific features
-│   │   ├── airport/      # Components for airport-related features
-│   │   │   ├── AirportDistressFrame/
+│   │   └── ...other UI components
+│
+│   ├── features/                  # Feature/domain-specific components
+│   │   ├── airport/
+│   │   │   ├── AirportDetails/
 │   │   │   │   ├── index.tsx
-│   │   │   │   └── AirportDistressFrame.module.css
-│   │   │   ├── Map/
+│   │   │   │   └── AirportDetails.module.css
+│   │   │   ├── AirportDetailsFrame/
 │   │   │   │   ├── index.tsx
-│   │   │   │   └── Map.module.css
+│   │   │   │   └── AirportDetailsFrame.module.css
+│   │   │   ├── ChartContainer/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── ChartContainer.module.css
 │   │   │   ├── DataViewTabs/
 │   │   │   │   ├── index.tsx
 │   │   │   │   └── DataViewTabs.module.css
-│   │   │   ├── SectionFilter/
+│   │   │   ├── FilterSection/
 │   │   │   │   ├── index.tsx
-│   │   │   │   └── SectionFilter.module.css
-│   │   │   └── etc.
-│   │   └── other features related components
-│   └── layout/          # Layout components
+│   │   │   │   └── FilterSection.module.css
+│   │   │   ├── Map/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── Map.module.css
+│   │   │   ├── SummaryChartFrame/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── SummaryChartFrame.module.css
+│   │   │   ├── TimelineSelector/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── TimelineSelector.module.css
+│   │   │   └── ...other airport-specific components
+│   │   └── ...other feature directories
+│
+│   └── layout/                    # Layout-level components
 │       ├── Header/
 │       │   ├── index.tsx
 │       │   └── Header.module.css
@@ -72,19 +176,61 @@ your-project-name/
 │       ├── TopLevel/
 │       │   ├── index.tsx
 │       │   └── TopLevel.module.css
-│       └── etc.
-├── lib/                 
-│   ├── hooks/           # Custom React hooks
+│       └── ...other layout components
+│
+├── backend/
+│   ├── api/
+│   │   ├── routers/
+│   │   │   ├── airport.ts          # Airport-related tRPC routes
+│   │   │   ├── post.ts             # Post-related tRPC routes
+│   │   │   └── index.ts            # Combined router export
+│   │   └── trpc.ts                 # tRPC initialization
+│   ├── data/
+│   │   ├── raw/
+│   │   │   ├── shapefiles/
+│   │   │   └── geojson/
+│   │   └── processed/
+│   ├── db/
+│   │   └── schema.prisma           # Prisma schema
+│   ├── lib/                        # Backend-specific utilities
+│   │   ├── db.ts                   # Database connection (Prisma)
+│   │   ├── utils.ts
+│   │   └── geo.ts
+│   ├── scripts/
+│   │   └── process-data.ts         # TypeScript-based data processing script
+│   ├── python_backend/             # Python-based backend services
+│   │   ├── main.py                 # Python entry point (e.g. FastAPI/Flask)
+│   │   ├── requirements.txt        # Python dependencies
+│   │   ├── process_shapefiles.py   # Example Python script for data processing
+│   │   └── ...other Python modules
+│   ├── types/                      # Backend-specific TS types
+│   │   └── ...
+│   ├── package.json                # Backend-specific Node dependencies (if separate)
+│   ├── tsconfig.json               # Backend TS config (if separate)
+│   └── .gitignore                  # Backend-specific ignores if needed
+│
+├── lib/                            # Frontend-oriented utilities & constants
+│   ├── api.ts                      # Frontend API call helpers
 │   ├── utils.ts
 │   ├── constants.ts
-│   └── etc.
-├── public/             
+│   └── ...other frontend utilities
+│
+├── public/                         # Static assets
 │   ├── images/
+│   │   └── image0.png
 │   └── fonts/
-├── styles/              
-├── types/               
+│
+├── styles/                         # Additional global styles (if any beyond Tailwind)
+│   └── ...
+│
+├── types/                          # Global (frontend) TypeScript types
+│   └── components.d.ts
+│
+├── .env                            # Single .env file for entire application
+├── .env.example
 ├── .gitignore
-├── next.config.js       
-├── package.json
-├── postcss.config.js   
-└── tailwind.config.js
+├── next.config.js
+├── package.json                    # Frontend/global dependencies
+├── postcss.config.js
+├── tailwind.config.js
+└── tsconfig.json
