@@ -1,0 +1,113 @@
+Okay, I've re-examined the three components (TopLevelViewFrame, AirportDistressFrame, and SummaryChartFrame) you provided earlier and compiled a comprehensive list of reusable components based on their structure, styling, and functionality.
+
+**Reusable Components:**
+
+Here's a list of potential reusable components, categorized for clarity:
+
+**1. Basic UI Components:**
+
+*   **Button:**
+    *   Different styles: Primary (with background color), Secondary (outlined or just text), Icon buttons.
+    *   Props: `text`, `onClick`, `variant` (primary, secondary, etc.), `size` (small, medium, large), `icon` (optional), `isDisabled` (optional), `isLoading` (optional).
+*   **Heading:**
+    *   Different heading levels (h1, h2, h3, etc.).
+    *   Props: `text`, `level` (h1, h2, h3), `textColor`, `textAlign`.
+*   **Text:**
+    *   For paragraphs, labels, and other text content.
+    *   Props: `text`, `textColor`, `fontSize`, `fontWeight`, `textAlign`.
+*   **Input:** (Not explicitly in your examples, but very likely needed)
+    *   Text inputs, number inputs, potentially date pickers, etc.
+    *   Props: `type`, `value`, `onChange`, `placeholder`, `label`, `isDisabled`, `isError`, `errorMessage`.
+*   **Checkbox:**
+    *   Used in filter sections.
+    *   Props: `isChecked`, `onChange`, `label`, `value`.
+*   **Radio Button:** (Potentially needed if you have single-select options)
+    *   Props: `isChecked`, `onChange`, `label`, `value`, `name` (to group radio buttons).
+*   **Dropdown:**
+    *   For selecting options from a list.
+    *   Props: `options` (array of options), `selectedValue`, `onChange`, `placeholder`, `label`.
+*   **DropdownArrow:**
+    *   The arrow icon used in dropdowns, likely an SVG.
+    *   Props: `isOpen` (to change direction), `color`.
+*   **Tooltip:** (Not directly in your example but a good candidate for reusability)
+    *   To display additional information on hover.
+    *   Props: `text`, `position` (top, bottom, left, right).
+*   **Loader/Spinner:** (Not explicitly in your example but useful)
+    *   To indicate loading states.
+*   **Icon:**
+    *   A general component to display icons, potentially using an icon library or SVGs.
+    *   Props: `name` (icon name), `size`, `color`.
+
+**2. Layout Components:**
+
+*   **Section:** A container for grouping related content with consistent padding/margins.
+*   **Card:** A container with a background color, padding, and potentially a shadow (used in the "Map Type" and "Timeline" sections).
+*   **Grid:** (If needed) A component for creating grid layouts.
+*   **FlexRow:** A container using flexbox for horizontal layouts with options for spacing, alignment, etc.
+*   **FlexCol:** A container using flexbox for vertical layouts with options for spacing, alignment, etc.
+*   **Divider:** A horizontal line used to separate sections (used in `SummaryChartFrame`).
+*   **Spacer:** A component to add horizontal or vertical space between elements.
+
+**3. Data Display Components:**
+
+*   **Table:**
+    *   Including `TableHeader`, `TableRow`, `TableCell` sub-components.
+    *   Props: `data` (array of objects), `columns` (array of column definitions).
+*   **ProgressBar:** (or PCI Range Indicator)
+    *   For visually representing numerical ranges or progress.
+    *   Props: `segments` (array of objects with color and range), `value` (current value).
+*   **DataLabel:** A component for displaying a label and its associated data value.
+
+**4. Feature-Specific Components (Reusable within the Airport Context):**
+
+*   **Map:**
+    *   Handles the display of the map image and potentially map interactions.
+    *   Props: `mapData`, `zoomLevel`, `center`, `onZoomChange`, `onPanChange`, etc.
+*   **MapToolbar:**
+    *   Container for map control buttons (e.g., zoom, data view toggle).
+*   **MapToolbarIcon:**
+    *   Individual icon buttons within the `MapToolbar`.
+*   **MapLegend:**
+    *   Displays the color-coded legend for the map.
+*   **ChartContainer:**
+    *   A wrapper for different chart types (e.g., PCI by Branch Use, Area by PCI Range).
+    *   Could use a charting library like Recharts, Chart.js, or a custom SVG-based implementation.
+*   **FilterSection:**
+    *   A container for filter controls (checkboxes, dropdowns) related to a specific data aspect.
+*   **Timeline:**
+    *   The main component for displaying the timeline.
+*   **TimelineItem:**
+    *   Represents a single year/item on the timeline.
+
+**5. Navigation:**
+
+*   **NavLink:** (Probably part of your `Header` component). A styled link component for navigation items with an active state.
+
+**Example Usage (Illustrative):**
+
+```tsx
+// In your AirportDistressFrame or SummaryChartFrame
+import {
+  Button,
+  Heading,
+  Text,
+  Table,
+  Dropdown,
+  Checkbox,
+  ProgressBar,
+  Map,
+  Timeline,
+  TimelineItem,
+} from '@/components/ui';
+
+// ...
+```
+
+**Further Considerations:**
+
+*   **Icons:** Decide on an icon system. You can use an icon library like `react-icons`, or import SVGs directly. Create an `Icon` component to manage them.
+*   **Styling:** Continue using Tailwind CSS utility classes. Consider using CSS Modules (`.module.css`) for component-specific styles to avoid naming conflicts.
+*   **Component Library/Design System:** As your project grows, consider creating a component library (e.g., using Storybook) to document and showcase your reusable components.
+*   **Accessibility:** Ensure your components are accessible by following ARIA guidelines and using semantic HTML elements.
+
+By identifying and implementing these reusable components, you'll significantly improve the consistency, maintainability, and development speed of your Next.js application, especially as it scales and you add more features. Remember to start with the most frequently used components and gradually build up your library.

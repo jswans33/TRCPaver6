@@ -1,0 +1,160 @@
+**Incorporating Storybook**
+
+**1. Installation and Setup:**
+
+*   **Install Storybook:**
+
+    ```bash
+    npx storybook@latest init
+    ```
+
+    This command will:
+    *   Detect that you are using Next.js and Tailwind CSS.
+    *   Install the necessary Storybook dependencies.
+    *   Create a `stories/` directory with example stories.
+    *   Add Storybook scripts to your `package.json`.
+    *   Set up basic Storybook configuration in a `.storybook` folder.
+
+*   **Update your `package.json`:**
+    *   Make sure these scripts are in your package.json. If not, add them.
+
+    ```json
+    "scripts": {
+      "storybook": "storybook dev -p 6006",
+      "build-storybook": "storybook build"
+    }
+    ```
+
+**2. Configure Storybook for Tailwind CSS:**
+
+*   **Install `postcss-loader`:**
+
+    ```bash
+    yarn add -D postcss-loader
+    ```
+
+*   **Update `.storybook/main.ts`:**
+
+    ```typescript
+    // .storybook/main.ts
+
+    import type { StorybookConfig } from "@storybook/nextjs";
+    const config: StorybookConfig = {
+      stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)"],
+      addons: [
+        "@storybook/addon-links",
+        "@storybook/addon-essentials",
+        "@storybook/addon-interactions",
+        "@storybook/addon-styling"
+      ],
+      framework: {
+        name: "@storybook/nextjs",
+        options: {},
+      },
+      docs: {
+        autodocs: "tag",
+      },
+    };
+    export default config;
+    ```
+
+**3. Write Stories for Your Components:**
+
+*   Create story files (e.g., `Button.stories.tsx`) inside your component folders or in a separate `stories/` directory at the root of the project. I recommend keeping them close to your component. Example: `components/ui/Button/Button.stories.tsx`.
+*   Here's an example of how to write a story for the `Button` component:
+
+```tsx
+// components/ui/Button/Button.stories.tsx
+
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { Button } from '.';
+
+const meta: Meta<typeof Button> = {
+  title: 'ui/Button',
+  component: Button,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Button>;
+
+export const Primary: Story = {
+  args: {
+    children: 'Primary Button',
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    children: 'Secondary Button',
+    className: 'border-2 border-gray-500 text-gray-700',
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    children: 'Button with Icon',
+    icon: 'path/to/your/icon.svg',
+  },
+};
+```
+
+**4. Run Storybook:**
+
+```bash
+yarn storybook
+```
+
+This will start the Storybook development server, typically on port 6006. You can then access Storybook in your browser at `http://localhost:6006/`.
+
+**Tech Stack with Storybook**
+
+Here's a list of the tech you'll need for your T3 Stack project with Storybook, based on what we've discussed:
+
+**Core T3 Stack:**
+
+*   **Next.js:** (with App Router) - Framework for building the application.
+*   **TypeScript:**  For type safety.
+*   **tRPC:** For type-safe API communication between frontend and backend.
+*   **Prisma:** ORM for database interactions.
+*   **Tailwind CSS:** Utility-first CSS framework for styling.
+
+**Additional Dependencies:**
+
+*   **Storybook:** UI component development and documentation tool.
+*   **`@storybook/addon-essentials`:**  Collection of essential Storybook addons (includes Actions, Controls, Viewport, Backgrounds, etc.).
+*   **`@storybook/addon-styling`:** Adds support for Tailwind CSS, PostCSS, and CSS Modules
+*   **`@storybook/addon-links`:** For linking between stories.
+*   **`@storybook/addon-interactions`:**  For simulating user interactions and debugging.
+*   **`@storybook/nextjs`:** Storybook's framework for integrating with Nextjs
+*   **`@storybook/react`:** Storybook's React renderer.
+*   **`postcss-loader`:** To process your CSS files and resolve things like `@import` and `url()`.
+*   **`@types/react`** & **`@types/node`** (if using typescript)
+*   **`shpjs`:** (Or another suitable library) For parsing shapefiles (if needed).
+*   **`geojson-utils`:** (Or another suitable library) For working with GeoJSON data (if needed).
+*   **Database Driver:** `pg` for PostgreSQL -  The driver for your chosen database.
+*   **NextAuth.js:** For authentication.
+
+**Optional but Recommended:**
+
+*   **Testing Library:** For component testing (e.g., `React Testing Library`, `Jest`, `Vitest`).
+*   **Storybook Addons:** Explore other Storybook addons that might be helpful for your project, such as:
+    *   **`@storybook/addon-a11y`:** For accessibility testing.
+    *   **`@storybook/addon-docs`:** For generating documentation from your stories.
+    *   **`@storybook/addon-viewport`:** For testing responsive layouts.
+
+**Development Workflow:**
+
+1.  **Develop Components in Isolation:** Create and style your reusable components in Storybook. Use stories to define different states and variations.
+2.  **Import into Next.js Pages:** Use your components in your Next.js pages (`app/` or `pages/`).
+3.  **Implement API Routes:** Create tRPC procedures in `server/api/routers/` to handle data fetching and processing.
+4.  **Connect Frontend to Backend:** Use the tRPC client to call your API procedures from your frontend components.
+5.  **Test:** Write unit tests for your components and API routes.
+6.  **Document:** Use Storybook to create documentation for your components and their usage.
+
+This comprehensive directory structure, along with the outlined technologies and workflow, will set you up for success in building a well-structured, maintainable, and scalable Next.js application using the T3 Stack and Storybook. Remember to tailor it to your specific project needs and preferences.
