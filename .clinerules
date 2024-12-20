@@ -1,0 +1,86 @@
+# Cline Rules for TRCPaver6
+
+## Project Structure
+- Current working directory: c:/Repos/TRCPaver6
+- Use relative paths from this directory
+- Follow T3 Stack conventions for file organization
+
+## PowerShell Commands
+Instead of using && for command chaining, use separate commands:
+
+```powershell
+# Git operations (separate commands)
+git add .
+git commit -m "your message"
+git push origin main
+
+# NPM operations (separate commands)
+npm install
+npm run dev
+npm run build
+```
+
+## Development Workflow
+1. One command at a time
+2. Check results before proceeding
+3. Use simple, clear commit messages
+4. Keep changes focused and atomic
+
+## File Operations
+- Always use relative paths from c:/Repos/TRCPaver6
+- Use PowerShell-compatible file operations:
+  ```powershell
+  New-Item -ItemType Directory -Force -Path "src/components/new-component"
+  Remove-Item -Path "path/to/file" -Force
+  ```
+
+## Git Operations
+- Add files individually or use dot for all:
+  ```powershell
+  git add specific-file.ts
+  # or
+  git add .
+  ```
+- Commit with clear messages:
+  ```powershell
+  git commit -m "Add user authentication"
+  ```
+- Push to main:
+  ```powershell
+  git push origin main
+  ```
+
+## Database Operations
+- Run Prisma commands individually:
+  ```powershell
+  npx prisma generate
+  npx prisma db push
+  npx prisma studio
+  ```
+
+## Environment Variables
+- Keep .env in project root
+- Use .env.example for templates
+- Never commit .env files
+
+## Component Guidelines
+- One component per file
+- Keep components in appropriate directories:
+  - UI components in src/components/ui
+  - Feature components in src/components/features
+  - Layout components in src/components/layout
+
+## Testing
+Run tests individually:
+```powershell
+npm run test
+npm run lint
+npm run typecheck
+```
+
+## Deployment
+Deploy to Vercel with separate commands:
+```powershell
+vercel
+# then if needed
+vercel --prod
