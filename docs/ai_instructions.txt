@@ -1,0 +1,144 @@
+# AI Instructions for TRCPaver6
+
+## Documentation Context Priority
+
+When working on this project, analyze these files in the following order to build context:
+
+1. README.md
+   - Project overview
+   - Basic setup instructions
+   - Core technologies
+   - Quick start guide
+
+2. docs/tech-stack.txt
+   - Detailed technology choices
+   - Framework configurations
+   - Library integrations
+   - Development tools setup
+
+3. docs/directory.txt
+   - Project structure
+   - Component organization
+   - File naming conventions
+   - Directory purposes
+
+4. LOG.md
+   - Development history
+   - Major changes
+   - Technical decisions
+   - Progress tracking
+
+5. NEXT_STEPS.md
+   - Upcoming tasks
+   - Deployment instructions
+   - Database setup
+   - Infrastructure configuration
+
+6. docs/cline_instructions.txt
+   - Response style guidelines
+   - Command execution rules
+   - Error handling procedures
+   - Project-specific practices
+
+## Context Building Process
+
+1. Initial Analysis:
+   - Start by reading README.md for project overview
+   - Check tech-stack.txt to understand technology choices
+   - Review directory.txt to understand project structure
+
+2. Historical Context:
+   - Review LOG.md to understand recent changes
+   - Note any ongoing development threads
+   - Identify patterns in development decisions
+
+3. Future Planning:
+   - Check NEXT_STEPS.md for pending tasks
+   - Understand deployment requirements
+   - Note infrastructure needs
+
+4. Working Guidelines:
+   - Follow .clinerules for development practices
+   - Apply cline_instructions.txt for interaction style
+   - Maintain consistent documentation
+
+## File Usage Guidelines
+
+1. When Receiving Tasks:
+   - Check README.md for relevant setup instructions
+   - Verify against tech-stack.txt for technology constraints
+   - Use directory.txt to locate relevant files
+   - Review LOG.md for related changes
+   - Check NEXT_STEPS.md for dependencies
+
+2. When Making Changes:
+   - Update LOG.md with significant changes
+   - Follow directory.txt for file placement
+   - Adhere to tech-stack.txt patterns
+   - Update NEXT_STEPS.md if completing tasks
+
+3. When Providing Assistance:
+   - Reference README.md for context
+   - Use tech-stack.txt for technical guidance
+   - Follow directory.txt for file operations
+   - Check LOG.md for historical context
+   - Consider NEXT_STEPS.md for future impact
+
+## Documentation Maintenance
+
+1. README.md Updates:
+   - Keep installation steps current
+   - Update technology list as needed
+   - Maintain clear setup instructions
+
+2. LOG.md Updates:
+   - Document all significant changes
+   - Include technical decisions
+   - Note any breaking changes
+   - Record deployment updates
+
+3. NEXT_STEPS.md Updates:
+   - Mark completed tasks
+   - Add new requirements
+   - Update deployment steps
+   - Revise infrastructure needs
+
+4. Directory Structure:
+   - Keep directory.txt current
+   - Document new directories
+   - Maintain organization rules
+   - Update component categories
+
+5. Tech Stack:
+   - Update tech-stack.txt with new tools
+   - Document version changes
+   - Note deprecated technologies
+   - Add new development tools
+
+## Response Guidelines
+
+1. Always Consider:
+   - Current project state (LOG.md)
+   - Planned changes (NEXT_STEPS.md)
+   - Technical constraints (tech-stack.txt)
+   - File organization (directory.txt)
+
+2. When Suggesting Changes:
+   - Verify against tech stack
+   - Follow directory structure
+   - Document in LOG.md
+   - Update NEXT_STEPS.md if needed
+
+3. When Answering Questions:
+   - Reference relevant documentation
+   - Provide context from LOG.md
+   - Consider future plans
+   - Follow response style guidelines
+
+4. When Handling Errors:
+   - Check tech stack for constraints
+   - Review LOG.md for similar issues
+   - Follow error handling guidelines
+   - Document solutions appropriately
+
+Remember: These documentation files form a complete context system. Always cross-reference between them to maintain consistency and make informed decisions.
