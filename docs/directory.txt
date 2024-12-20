@@ -1,0 +1,90 @@
+your-project-name/
+├── app/
+│   ├── (your-routes)/
+│   │   ├── airport-details/   
+│   │   │   ├── page.tsx       # Airport Details page component using AirportDistressFrame
+│   │   │   └── data.ts      # Data fetching logic for airport details
+│   │   ├── layout.tsx
+│   │   └── ...other routes
+│   ├── globals.css        
+│   └── layout.tsx        
+├── components/
+│   ├── ui/              # General, reusable UI components
+│   │   ├── Button/
+│   │   │   ├── index.tsx
+│   │   │   └── Button.module.css 
+│   │   ├── Table/
+│   │   │   ├── index.tsx
+│   │   │   ├── Table.module.css
+│   │   │   ├── TableCell.tsx
+│   │   │   └── TableCell.module.css
+│   │   ├── Dropdown/
+│   │   │   ├── index.tsx
+│   │   │   └── Dropdown.module.css
+│   │   ├── DropdownArrow/
+│   │   │   ├── index.tsx
+│   │   │   └── DropdownArrow.module.css
+│   │   ├── Checkbox/        
+│   │   │   ├── index.tsx
+│   │   │   └── Checkbox.module.css
+│   │   ├── Timeline/
+│   │   │   ├── index.tsx
+│   │   │   └── Timeline.module.css
+│   │   ├── TimelineItem/
+│   │   │   ├── index.tsx
+│   │   │   └── TimelineItem.module.css
+│   │   ├── ProgressBar/ 
+│   │   │   ├── index.tsx
+│   │   │   └── ProgressBar.module.css
+│   │   ├── MapToolbarIcon/
+│   │   │   ├── index.tsx
+│   │   │   └── MapToolbarIcon.module.css
+│   │   ├── Heading/
+│   │   │   ├── index.tsx
+│   │   │   └── Heading.module.css
+│   │   ├── Text/
+│   │   │   ├── index.tsx
+│   │   │   └── Text.module.css
+│   │   └── etc.
+│   ├── features/        # Components related to specific features
+│   │   ├── airport/      # Components for airport-related features
+│   │   │   ├── AirportDistressFrame/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── AirportDistressFrame.module.css
+│   │   │   ├── Map/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── Map.module.css
+│   │   │   ├── DataViewTabs/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── DataViewTabs.module.css
+│   │   │   ├── SectionFilter/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── SectionFilter.module.css
+│   │   │   └── etc.
+│   │   └── other features related components
+│   └── layout/          # Layout components
+│       ├── Header/
+│       │   ├── index.tsx
+│       │   └── Header.module.css
+│       ├── Footer/
+│       │   ├── index.tsx
+│       │   └── Footer.module.css
+│       ├── TopLevel/
+│       │   ├── index.tsx
+│       │   └── TopLevel.module.css
+│       └── etc.
+├── lib/                 
+│   ├── hooks/           # Custom React hooks
+│   ├── utils.ts
+│   ├── constants.ts
+│   └── etc.
+├── public/             
+│   ├── images/
+│   └── fonts/
+├── styles/              
+├── types/               
+├── .gitignore
+├── next.config.js       
+├── package.json
+├── postcss.config.js   
+└── tailwind.config.js
